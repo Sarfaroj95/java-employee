@@ -1,16 +1,16 @@
-package com.restapiproject.rest_demo.service.impl;
+package com.restapiproject.rest_demo.service.Impl;
 
+import com.restapiproject.rest_demo.repository.CloudVendorRepository;
 import com.restapiproject.rest_demo.model.CloudVendor;
 import com.restapiproject.rest_demo.service.CloudVendorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CloudVendorServiceImpl implements CloudVendorService {
 
-    @Autowired
     CloudVendorRepository cloudVendorRepository;
-
 
     public CloudVendorServiceImpl(CloudVendorRepository cloudVendorRepository) {
         this.cloudVendorRepository = cloudVendorRepository;
@@ -19,29 +19,34 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Override
     public String createCloudVendor(CloudVendor cloudVendor) {
+        //  More Business logic
         cloudVendorRepository.save(cloudVendor);
-        return "Success";
+        return "Create success";
     }
 
     @Override
     public String updateCloudVendor(CloudVendor cloudVendor) {
-//        Its test code push
-        return null;
-
+        // More Business logic
+        cloudVendorRepository.save(cloudVendor);
+        return "Update success";
     }
 
     @Override
     public String deleteCloudVendor(String cloudVendorId) {
-        return null;
+        //  More Business logic
+        cloudVendorRepository.deleteById(cloudVendorId);
+        return "Delete Success";
     }
 
     @Override
     public CloudVendor getCloudVendor(String cloudVendorId) {
-        return cloudVendorRepository.findById(cloudVendorId).get();
+        //  More Business logic
+        return  cloudVendorRepository.findById(cloudVendorId).get();
     }
 
     @Override
     public List<CloudVendor> getAllCloudVendors() {
+        //  More Business logic
         return cloudVendorRepository.findAll();
     }
 }
