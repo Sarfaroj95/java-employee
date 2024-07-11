@@ -25,7 +25,9 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Override
     public String updateCloudVendor(CloudVendor cloudVendor) {
+//        Its test code push
         return null;
+
     }
 
     @Override
